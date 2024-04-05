@@ -1,3 +1,5 @@
+Reference: https://stackoverflow.com/questions/7044985/how-can-i-auto-elevate-my-batch-file-so-that-it-requests-from-uac-administrator/18037959#18037959
+
 The script takes advantage of the fact that NET FILE requires administrator privilege and returns errorlevel 1 if you don't have it. The elevation is achieved by creating a script which re-launches the batch file to obtain privileges. This causes Windows to present the UAC dialog and asks you for the administrator account and password.
 
 I have tested it with Windows 7, 8, 8.1, 10, 11 and with Windows XP - it works fine for all. The advantage is, after the start point you can place anything that requires system administrator privileges, for example, if you intend to re-install and re-run a Windows service for debugging purposes (assumed that mypackage.msi is a service installer package):
